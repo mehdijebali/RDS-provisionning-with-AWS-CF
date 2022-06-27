@@ -10,6 +10,7 @@ Properties:
   BackupRetentionPeriod: 30
   CopyTagsToSnapshot: True
   DBName: staffnow
+  DBInstanceClass: "db.t3.small"
   DBSecurityGroups: 
     - String
   DBSnapshotIdentifier: staffnow_db_snapshot
