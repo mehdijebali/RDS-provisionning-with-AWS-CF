@@ -1,3 +1,5 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Add Postgres Database
 Resources: 
   STAFFNOW_DB:
     Type: AWS::RDS::DBInstance
