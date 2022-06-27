@@ -4,41 +4,28 @@ Resources:
 Properties: 
   AllocatedStorage: "5"
   AllowMajorVersionUpgrade: False
-  AutoMinorVersionUpgrade: Boolean
+  AutoMinorVersionUpgrade: False
   BackupRetentionPeriod: 30
-  CACertificateIdentifier: String
-  CharacterSetName: String
   CopyTagsToSnapshot: True
   DBName: staffnow
-  DBParameterGroupName: String
   DBSecurityGroups: 
     - String
-  DBSnapshotIdentifier: String
+  DBSnapshotIdentifier: staffnow_db_snapshot
   DBSubnetGroupName: String
   DeleteAutomatedBackups: True
   DeletionProtection: False
-  Domain: String
-  DomainIAMRoleName: String
-  EnableCloudwatchLogsExports: 
-  EnablePerformanceInsights: Boolean
   Engine: postgres
-  EngineVersion: "4"
   Iops: 50000
-  MasterUsername: String
-  MasterUserPassword: String
+  MasterUsername: postgres
+  MasterUserPassword: 1rKW6eXQXlQ7
   MaxAllocatedStorage: 10
   MultiAZ: True
   Port: "5432"
-  PreferredBackupWindow: String
-  PreferredMaintenanceWindow: String
   ProcessorFeatures: 
     - ProcessorFeature
   PromotionTier: Integer
   PubliclyAccessible: False
-  SourceDBInstanceIdentifier: String
-  SourceRegion: String
   StorageEncrypted: True
-  StorageType: String
   Tags: 
     - Tag
   UseDefaultProcessorFeatures: Boolean
