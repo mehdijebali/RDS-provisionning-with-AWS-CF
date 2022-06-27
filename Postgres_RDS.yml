@@ -27,7 +27,10 @@ Properties:
   PubliclyAccessible: False
   StorageEncrypted: True
   Tags: 
-    - Tag
-  UseDefaultProcessorFeatures: Boolean
+    - Key: Name
+      Value: Staffnow_db_dev
+  DeletionPolicy: Snapshot
+  UpdateReplacePolicy: Snapshot
+  UseDefaultProcessorFeatures: True
   VPCSecurityGroups: 
     - String
