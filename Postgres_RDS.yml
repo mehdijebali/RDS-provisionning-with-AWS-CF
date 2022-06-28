@@ -6,36 +6,56 @@ Parameters:
   MasterUserPassword:
     Type: String
 Resources: 
+DBSecurityGroup:
+    Type: "AWS::EC2::SecurityGroup"
+    Properties:
+      GroupName: "Example Security Group"
+      GroupDescription: "RDS traffic"
+      VpcId: !Ref "VPC"
+      SecurityGroupEgress:
+      - IpProtocol: "-1"
+        CidrIp: "0.0.0.0/0"
+
+  DBSecurityGroupIngress:
+    Type: AWS::EC2::SecurityGroupIngress
+    DependsOn: Security group for the database
+    Properties:
+      GroupId: !Ref DBSecurityGroup
+      IpProtocol: tcp
+      FromPort: 0
+      ToPort: 65535
+      SourceSecurityGroupId: !Ref DBSecurityGroup
+
   STAFFNOW_DB:
     Type: AWS::RDS::DBInstance
-Properties: 
-  AllocatedStorage: 5
-  AllowMajorVersionUpgrade: False
-  AutoMinorVersionUpgrade: False
-  BackupRetentionPeriod: 30
-  CopyTagsToSnapshot: True
-  DBName: staffnow
-  DBInstanceClass: db.t3.micro
-  DBSecurityGroups: 
-    - String
-  DBSnapshotIdentifier: staffnow_db_snapshot
-  DBSubnetGroupName: String
-  DeleteAutomatedBackups: True
-  DeletionProtection: False
-  Engine: postgres
-  Iops: 50000
-  MasterUsername: !Ref MasterUsername
-  MasterUserPassword: !Ref MasterUserPassword
-  MaxAllocatedStorage: 10
-  MultiAZ: True
-  Port: 5432
-  PubliclyAccessible: False
-  StorageEncrypted: True
-  Tags: 
-    - Key: Name
-      Value: Staffnow_db_dev
-  DeletionPolicy: Snapshot
-  UpdateReplacePolicy: Snapshot
-  UseDefaultProcessorFeatures: True
-  VPCSecurityGroups: 
-    - String
+    Properties: 
+      AllocatedStorage: 5
+      AllowMajorVersionUpgrade: False
+      AutoMinorVersionUpgrade: False
+      BackupRetentionPeriod: 30
+      CopyTagsToSnapshot: True
+      DBName: staffnow
+      DBInstanceClass: db.t3.micro
+      DBSecurityGroups: 
+        - String
+      DBSnapshotIdentifier: staffnow_db_snapshot
+      DBSubnetGroupName: String
+      DeleteAutomatedBackups: True
+      DeletionProtection: False
+      Engine: postgres
+      Iops: 50000
+      MasterUsername: !Ref MasterUsername
+      MasterUserPassword: !Ref MasterUserPassword
+      MaxAllocatedStorage: 10
+      MultiAZ: True
+      Port: 5432
+      PubliclyAccessible: False
+      StorageEncrypted: True
+      Tags: 
+        - Key: Name
+          Value: Staffnow_db_dev
+      DeletionPolicy: Snapshot
+      UpdateReplacePolicy: Snapshot
+      UseDefaultProcessorFeatures: True
+      VPCSecurityGroups: 
+        - String
