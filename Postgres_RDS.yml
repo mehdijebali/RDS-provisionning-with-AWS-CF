@@ -1,10 +1,15 @@
 AWSTemplateFormatVersion: 2010-09-09
 Description: Add Postgres Database
+Parameters:
+  MasterUsername:
+    Type: String 
+  MasterUserPassword:
+    Type: String
 Resources: 
   STAFFNOW_DB:
     Type: AWS::RDS::DBInstance
 Properties: 
-  AllocatedStorage: "5"
+  AllocatedStorage: 5
   AllowMajorVersionUpgrade: False
   AutoMinorVersionUpgrade: False
   BackupRetentionPeriod: 30
@@ -19,11 +24,11 @@ Properties:
   DeletionProtection: False
   Engine: postgres
   Iops: 50000
-  MasterUsername: postgres
-  MasterUserPassword: 1rKW6eXQXlQ7
+  MasterUsername: !Ref MasterUsername
+  MasterUserPassword: !Ref MasterUserPassword
   MaxAllocatedStorage: 10
   MultiAZ: True
-  Port: "5432"
+  Port: 5432
   PubliclyAccessible: False
   StorageEncrypted: True
   Tags: 
