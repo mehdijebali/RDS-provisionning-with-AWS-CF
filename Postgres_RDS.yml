@@ -1,12 +1,14 @@
 AWSTemplateFormatVersion: 2010-09-09
 Description: Add Postgres Database
+
 Parameters:
   MasterUsername:
     Type: String 
   MasterUserPassword:
     Type: String
+
 Resources: 
-DBSecurityGroup:
+  DBSecurityGroup:
     Type: "AWS::EC2::SecurityGroup"
     Properties:
       GroupName: "Example Security Group"
@@ -26,6 +28,15 @@ DBSecurityGroup:
       ToPort: 65535
       SourceSecurityGroupId: !Ref DBSecurityGroup
 
+  DBSubnetGroup:
+    Type: AWS::RDS::DBSubnetGroup
+    Properties:
+      DBSubnetGroupName: subnetgroup
+      DBSubnetGroupDescription: Subnet Group
+      SubnetIds:
+      - !Ref SubnetA
+      - !Ref SubnetB
+
   STAFFNOW_DB:
     Type: AWS::RDS::DBInstance
     Properties: 
@@ -37,7 +48,7 @@ DBSecurityGroup:
       DBName: staffnow
       DBInstanceClass: db.t3.micro
       DBSnapshotIdentifier: staffnow_db_snapshot
-      DBSubnetGroupName: String
+      DBSubnetGroupName: !Ref DBSubnetGroup
       DeleteAutomatedBackups: True
       DeletionProtection: False
       Engine: postgres
