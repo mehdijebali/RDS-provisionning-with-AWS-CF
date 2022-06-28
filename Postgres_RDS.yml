@@ -34,8 +34,8 @@ Resources:
       DBSubnetGroupName: subnetgroup
       DBSubnetGroupDescription: Subnet Group
       SubnetIds:
-      - !Ref SubnetA
-      - !Ref SubnetB
+      - subnet-0cb1a6355856d6c93
+      - subnet-006122649211363af
 
   STAFFNOW_DB:
     Type: AWS::RDS::DBInstance
