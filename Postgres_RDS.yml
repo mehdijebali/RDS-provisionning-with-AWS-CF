@@ -36,8 +36,6 @@ DBSecurityGroup:
       CopyTagsToSnapshot: True
       DBName: staffnow
       DBInstanceClass: db.t3.micro
-      DBSecurityGroups: 
-        - String
       DBSnapshotIdentifier: staffnow_db_snapshot
       DBSubnetGroupName: String
       DeleteAutomatedBackups: True
@@ -58,4 +56,4 @@ DBSecurityGroup:
       UpdateReplacePolicy: Snapshot
       UseDefaultProcessorFeatures: True
       VPCSecurityGroups: 
-        - String
+        - !Ref DBSecurityGroup
