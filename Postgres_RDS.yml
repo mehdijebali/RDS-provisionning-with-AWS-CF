@@ -9,10 +9,10 @@ Parameters:
 
 Resources: 
   DBSecurityGroup:
-    Type: "AWS::EC2::SecurityGroup"
+    Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupName: "Example Security Group"
-      GroupDescription: "RDS traffic"
+      GroupName: sg-postgres
+      GroupDescription: PostgresDB traffic
       VpcId: vpc-0415c9f8f9a75cacb
       SecurityGroupEgress:
       - IpProtocol: "-1"
@@ -24,8 +24,8 @@ Resources:
     Properties:
       GroupId: !Ref DBSecurityGroup
       IpProtocol: tcp
-      FromPort: 0
-      ToPort: 65535
+      FromPort: 5432
+      ToPort: 5432
       SourceSecurityGroupId: !Ref DBSecurityGroup
 
   DBSubnetGroup:
