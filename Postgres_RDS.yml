@@ -11,7 +11,7 @@ Resources:
   DBSecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
-      GroupName: sg-postgres
+      GroupName: sgpostgres
       GroupDescription: PostgresDB traffic
       VpcId: vpc-0415c9f8f9a75cacb
       SecurityGroupEgress:
