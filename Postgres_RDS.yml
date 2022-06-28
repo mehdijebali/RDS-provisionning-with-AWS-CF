@@ -20,7 +20,7 @@ Resources:
 
   DBSecurityGroupIngress:
     Type: AWS::EC2::SecurityGroupIngress
-    DependsOn: Security group for the database
+    DependsOn: DBSecurityGroup
     Properties:
       GroupId: !Ref DBSecurityGroup
       IpProtocol: tcp
