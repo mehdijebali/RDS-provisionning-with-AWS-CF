@@ -15,8 +15,8 @@ Resources:
       GroupDescription: PostgresDB traffic
       VpcId: vpc-0415c9f8f9a75cacb
       SecurityGroupEgress:
-      - IpProtocol: "-1"
-        CidrIp: "0.0.0.0/0"
+      - IpProtocol: -1
+        CidrIp: 0.0.0.0/0
 
   DBSecurityGroupIngress:
     Type: AWS::EC2::SecurityGroupIngress
