@@ -11,7 +11,7 @@ DBSecurityGroup:
     Properties:
       GroupName: "Example Security Group"
       GroupDescription: "RDS traffic"
-      VpcId: !Ref "VPC"
+      VpcId: vpc-0415c9f8f9a75cacb
       SecurityGroupEgress:
       - IpProtocol: "-1"
         CidrIp: "0.0.0.0/0"
