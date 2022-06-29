@@ -49,7 +49,7 @@ Resources:
       CopyTagsToSnapshot: True
       DBName: staffnow
       DBInstanceClass: db.t3.micro
-      DBSnapshotIdentifier: staffnow_db_snapshot
+      DBSnapshotIdentifier: staffnowsnapshot
       DBSubnetGroupName: !Ref DBSubnetGroup
       DeleteAutomatedBackups: True
       DeletionProtection: False
