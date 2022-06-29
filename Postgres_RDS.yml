@@ -42,7 +42,7 @@ Resources:
     DeletionPolicy: Snapshot
     UpdateReplacePolicy: Snapshot
     Properties: 
-      AllocatedStorage: 20
+      AllocatedStorage: 20GiB
       AllowMajorVersionUpgrade: False
       AutoMinorVersionUpgrade: False
       BackupRetentionPeriod: 30
@@ -56,7 +56,7 @@ Resources:
       Iops: 50000
       MasterUsername: !Ref MasterUsername
       MasterUserPassword: !Ref MasterUserPassword
-      MaxAllocatedStorage: 10
+      MaxAllocatedStorage: 50GiB
       MultiAZ: True
       Port: 5432
       PubliclyAccessible: False
