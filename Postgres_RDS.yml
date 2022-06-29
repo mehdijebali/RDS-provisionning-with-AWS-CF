@@ -53,7 +53,7 @@ Resources:
       DeleteAutomatedBackups: True
       DeletionProtection: False
       Engine: postgres
-      Iops: 50000
+      Iops: 3000
       MasterUsername: !Ref MasterUsername
       MasterUserPassword: !Ref MasterUserPassword
       MaxAllocatedStorage: 120
