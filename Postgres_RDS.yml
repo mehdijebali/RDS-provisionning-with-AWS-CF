@@ -1,4 +1,4 @@
-AWSTemplateFormatVersion: 2010-09-09
+AWSTemplateFormatVersion: "2010-09-09"
 Description: Add Postgres Database
 
 Parameters:
@@ -39,15 +39,16 @@ Resources:
 
   STAFFNOWDB:
     Type: AWS::RDS::DBInstance
+    DeletionPolicy: Snapshot
+    UpdateReplacePolicy: Snapshot
     Properties: 
-      AllocatedStorage: 5
+      AllocatedStorage: 50
       AllowMajorVersionUpgrade: False
       AutoMinorVersionUpgrade: False
       BackupRetentionPeriod: 30
       CopyTagsToSnapshot: True
       DBName: staffnow
       DBInstanceClass: db.t3.micro
-      DBSnapshotIdentifier: staffnow_db_snapshot
       DBSubnetGroupName: !Ref DBSubnetGroup
       DeleteAutomatedBackups: True
       DeletionProtection: False
@@ -55,7 +56,7 @@ Resources:
       Iops: 50000
       MasterUsername: !Ref MasterUsername
       MasterUserPassword: !Ref MasterUserPassword
-      MaxAllocatedStorage: 10
+      MaxAllocatedStorage: 60
       MultiAZ: True
       Port: 5432
       PubliclyAccessible: False
@@ -63,8 +64,6 @@ Resources:
       Tags: 
         - Key: Name
           Value: Staffnow_db_dev
-      DeletionPolicy: Snapshot
-      UpdateReplacePolicy: Snapshot
       UseDefaultProcessorFeatures: True
       VPCSecurityGroups: 
         - !Ref DBSecurityGroup
