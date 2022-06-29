@@ -1,4 +1,4 @@
-AWSTemplateFormatVersion: 2010-09-09
+AWSTemplateFormatVersion: "2010-09-09"
 Description: Add Postgres Database
 
 Parameters:
@@ -39,6 +39,7 @@ Resources:
 
   STAFFNOWDB:
     Type: AWS::RDS::DBInstance
+    DeletionPolicy: Snapshot
     Properties: 
       AllocatedStorage: 5
       AllowMajorVersionUpgrade: False
@@ -63,7 +64,6 @@ Resources:
       Tags: 
         - Key: Name
           Value: Staffnow_db_dev
-      DeletionPolicy: Snapshot
       UpdateReplacePolicy: Snapshot
       UseDefaultProcessorFeatures: True
       VPCSecurityGroups: 
