@@ -40,6 +40,7 @@ Resources:
   STAFFNOWDB:
     Type: AWS::RDS::DBInstance
     DeletionPolicy: Snapshot
+    UpdateReplacePolicy: Snapshot
     Properties: 
       AllocatedStorage: 5
       AllowMajorVersionUpgrade: False
@@ -64,7 +65,6 @@ Resources:
       Tags: 
         - Key: Name
           Value: Staffnow_db_dev
-      UpdateReplacePolicy: Snapshot
       UseDefaultProcessorFeatures: True
       VPCSecurityGroups: 
         - !Ref DBSecurityGroup
