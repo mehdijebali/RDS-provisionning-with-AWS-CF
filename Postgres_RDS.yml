@@ -42,7 +42,7 @@ Resources:
     DeletionPolicy: Snapshot
     UpdateReplacePolicy: Snapshot
     Properties: 
-      AllocatedStorage: 50
+      AllocatedStorage: 100
       AllowMajorVersionUpgrade: False
       AutoMinorVersionUpgrade: False
       BackupRetentionPeriod: 30
@@ -53,10 +53,10 @@ Resources:
       DeleteAutomatedBackups: True
       DeletionProtection: False
       Engine: postgres
-      Iops: 50000
+      Iops: 3000
       MasterUsername: !Ref MasterUsername
       MasterUserPassword: !Ref MasterUserPassword
-      MaxAllocatedStorage: 60
+      MaxAllocatedStorage: 120
       MultiAZ: True
       Port: 5432
       PubliclyAccessible: False
