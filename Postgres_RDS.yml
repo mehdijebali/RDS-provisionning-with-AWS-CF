@@ -42,7 +42,7 @@ Resources:
     DeletionPolicy: Snapshot
     UpdateReplacePolicy: Snapshot
     Properties: 
-      AllocatedStorage: 10
+      AllocatedStorage: 20
       AllowMajorVersionUpgrade: False
       AutoMinorVersionUpgrade: False
       BackupRetentionPeriod: 30
